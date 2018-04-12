@@ -56,7 +56,7 @@ public class VerticalViewPager extends ViewPager {
     }
 
     /**
-     * Swaps the X and Y coordinates of your touch event.
+     * 交换触摸事件的X和Y坐标
      */
     private MotionEvent swapXY(MotionEvent ev) {
         float width = getWidth();
@@ -73,8 +73,8 @@ public class VerticalViewPager extends ViewPager {
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         boolean intercepted = super.onInterceptTouchEvent(swapXY(ev));
-        swapXY(ev); // return touch coordinates to original reference frame for any child views
-        return intercepted;
+        swapXY(ev);
+        return intercepted; //为所有子视图返回触摸的原始坐标
     }
 
     @Override
