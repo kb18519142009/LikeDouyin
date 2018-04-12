@@ -35,21 +35,21 @@ public class VerticalViewPager extends ViewPager {
         public void transformPage(View view, float position) {
 
             if (position < -1) { // [-Infinity,-1)
-                // This page is way off-screen to the left.
+                // 当前页的上一页
                 view.setAlpha(0);
 
             } else if (position <= 1) { // [-1,1]
                 view.setAlpha(1);
 
-                // Counteract the default slide transition
+                // 抵消默认幻灯片过渡
                 view.setTranslationX(view.getWidth() * -position);
 
-                //set Y position to swipe in from top
+                //设置从上滑动到Y位置
                 float yPosition = position * view.getHeight();
                 view.setTranslationY(yPosition);
 
             } else { // (1,+Infinity]
-                // This page is way off-screen to the right.
+                // 当前页的下一页
                 view.setAlpha(0);
             }
         }
